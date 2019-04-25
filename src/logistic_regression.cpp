@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "logistic_regression.h"
 
 double logistic_regression::predict(double** matrix, const unsigned short nof_rows, const unsigned short nof_columns) const
