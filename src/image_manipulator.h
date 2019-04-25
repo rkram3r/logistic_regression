@@ -1,29 +1,15 @@
 #pragma once
 
-class image_classifier
+class image_manipulator
 {
 public:
-	explicit image_classifier(const double* coef, const double euler, double (*pow)(double, double)) :
-		coef_{ coef },
-		euler_{ euler },
-		pow_{ pow }
-	{
-	}
-
-	double predict(double** img, unsigned short nof_rows, unsigned short nof_columns) const;
 	static void compress_image(double** img, unsigned short nof_rows, unsigned short nof_columns);
 	static double calculate_treshhold(double** image, unsigned short nof_rows, unsigned short nof_columns);
 	static char* convert_to_number(const bool* binary_image, unsigned short nof_rows, unsigned short nof_columns);
 	static bool* convert_to_binary(double** image, unsigned short nof_rows, unsigned short nof_columns);
-
-private:
-	const double* coef_;
-	const double euler_{};
-	double (*pow_)(double, double);
 };
 
-
-inline void image_classifier::compress_image(double** img, const unsigned short nof_rows, const unsigned short nof_columns)
+inline void image_manipulator::compress_image(double** img, const unsigned short nof_rows, const unsigned short nof_columns)
 {
 	for (auto column_index = 0; column_index < nof_columns; column_index++)
 	{
@@ -37,7 +23,7 @@ inline void image_classifier::compress_image(double** img, const unsigned short 
 	}
 }
 
-inline double image_classifier::calculate_treshhold(double** image, const unsigned short nof_rows, const unsigned short nof_columns)
+inline double image_manipulator::calculate_treshhold(double** image, const unsigned short nof_rows, const unsigned short nof_columns)
 {
 	double sum = 0;
 	for (auto row_index = 0; row_index < nof_rows; row_index++)
@@ -50,7 +36,7 @@ inline double image_classifier::calculate_treshhold(double** image, const unsign
 	return sum / nof_rows / nof_columns;
 }
 
-inline bool* image_classifier::convert_to_binary(double** image, const unsigned short nof_rows, const unsigned short nof_columns)
+inline bool* image_manipulator::convert_to_binary(double** image, const unsigned short nof_rows, const unsigned short nof_columns)
 {
 	const auto treshold = calculate_treshhold(image, nof_rows, nof_columns);
 	const auto binary_image = new bool[nof_rows * nof_columns];
@@ -66,7 +52,7 @@ inline bool* image_classifier::convert_to_binary(double** image, const unsigned 
 	return binary_image;
 }
 
-inline char* image_classifier::convert_to_number(const bool* binary_image, const unsigned short nof_rows, const unsigned short nof_columns)
+inline char* image_manipulator::convert_to_number(const bool* binary_image, const unsigned short nof_rows, const unsigned short nof_columns)
 {
 	const auto digits = "0123456789ABCDEF";
 	const auto int_size = sizeof(int);
