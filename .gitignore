@@ -34,8 +34,6 @@
 Debug
 .vs
 packages
-*.sln*
 *.htm
-*.vcxproj*
-packages.config
 .vscode
+Release

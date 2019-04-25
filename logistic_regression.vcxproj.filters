@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="src\image_manipulator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logistic_regression.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="src\image_manipulator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\logistic_regression.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="nok.h" />
+    <ClInclude Include="ok.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{3ecaf1bc-4819-4c39-881b-c379df4cc50d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

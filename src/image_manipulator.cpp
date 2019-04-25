@@ -1,6 +1,6 @@
 #include "image_manipulator.h"
 
-void image_manipulator::compress() const
+double** image_manipulator::compress() const
 {
 	for (auto column_index = 0; column_index < nof_columns_; column_index++)
 	{
@@ -13,6 +13,7 @@ void image_manipulator::compress() const
 		}
 		image_[0][column_index] = row_sum / nof_rows_;
 	}
+	return get();
 }
 
 double** image_manipulator::get() const
