@@ -10,10 +10,11 @@
     "name": "rkram3r"
   },
   "export": {
-    "include": ["src/*.[ch]pp", "src/.h"]
+    "include": [ "src/*.[ch]pp", "src/.h" ]
   },
+  "example": ["test.cpp"],
   "dependencies": {},
-  "version": "1.0.2",
+  "version": "1.0.3",
   "frameworks": "*",
   "platforms": "*"
 }
