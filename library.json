@@ -12,7 +12,7 @@
   "export": {
     "include": [ "src/*.[ch]pp", "src/*.h" ]
   },
-  "example": ["test.cpp"],
+  "examples": ["test.cpp"],
   "dependencies": {},
   "version": "1.0.4",
   "frameworks": "*",
