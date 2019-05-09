@@ -12,7 +12,6 @@
   "export": {
     "include": [ "src/*.[ch]pp", "src/*.h" ]
   },
-  "examples": ["test.cpp"],
   "dependencies": {},
   "version": "1.0.5",
   "frameworks": "*",
