@@ -1,14 +1,11 @@
 #include "logistic_regression.h"
 
-double logistic_regression::predict(double **matrix) const
+double logistic_regression::predict(unsigned char* matrix) const
 {
-	double sum = 0;
-	for (auto row_index = 0; row_index < nof_rows_; row_index++)
+	double sum = -intercept;
+	for (auto index = 0; index < nof_coef; index++)
 	{
-		for (auto column_index = 0; column_index < nof_columns_; column_index++)
-		{
-			sum -= matrix[row_index][column_index] * coef_[nof_columns_ * row_index + column_index];
-		}
+		sum -= matrix[index] * coef_[index];
 	}
 	return 1 / (1 + pow_(euler_, sum));
 }
