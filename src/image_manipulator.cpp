@@ -1,48 +1,44 @@
-#include "image_manipulator.h"
+#pragma once
 
-
-unsigned char* image_manipulator::get() const
+class image_manipulator
 {
-	return image_;
+public:
+    static double calculate_treshold(unsigned char* image, unsigned short nof_cells);
+    static unsigned short compromise_image_return_new_index(unsigned char* image, const unsigned short nof_cells);
+
+private:
+};
+
+inline double image_manipulator::calculate_treshold(unsigned char* image, const unsigned short nof_cells)
+{
+    double sum = 0;
+    for (auto index = 0; index < nof_cells; index++)
+    {
+        sum += image[index];
+    }
+    return sum / nof_cells;
 }
 
-double image_manipulator::treshhold() const
+inline bool is_cell_lte_treshold(const unsigned char* image, const double treshold, const unsigned short index)
 {
-	double sum = 0;
-	for (auto index = 0; index < length_; index++)
-	{
-		sum += image_[length_];
-	}
-	return sum / length_;
+    return image[index] <= treshold;
 }
 
-bool* image_manipulator::binary_array() const
+inline unsigned short image_manipulator::compromise_image_return_new_index(unsigned char* image, const unsigned short nof_cells)
 {
-	const auto treshold = treshhold();
-	const auto binary_array_image = new bool[length_];
+    const auto digits = "0123456789ABCDEF";
+    const auto int_size = sizeof(int);
+    const auto treshold = calculate_treshold(image, nof_cells);
 
-	for (auto index = 0; index < length_; index++)
-	{
-		binary_array_image[index] = image_[index] <= treshold;
-	}
+    for (auto index = 0; index < nof_cells; index += 4)
+    {
+        const auto add_8 = is_cell_lte_treshold(image, treshold, index);
+        const auto add_4 = index + 1 < nof_cells && is_cell_lte_treshold(image, treshold, index + 1);
+        const auto add_2 = index + 2 < nof_cells && is_cell_lte_treshold(image, treshold, index + 2);
+        const auto add_1 = index + 3 < nof_cells && is_cell_lte_treshold(image, treshold, index + 3);
 
-	return binary_array_image;
-}
+        image[index / int_size] = digits[(add_8 ? 8 : 0) | (add_4 ? 4 : 0) | (add_2 ? 2 : 0) | (add_1 ? 1 : 0)];
+    }
 
-char* image_manipulator::hex_array() const
-{
-	const auto binary_array_image = binary_array();
-	const auto digits = "0123456789ABCDEF";
-	const auto int_size = sizeof(int);
-	const auto image_as_numbers = new char[length_ / int_size + 1];
-	for (auto index = 0; index < length_; index += 4)
-	{
-		const auto add_8 = binary_array_image[index];
-		const auto add_4 = index + 1 < length_ && binary_array_image[index + 1];
-		const auto add_2 = index + 2 < length_ && binary_array_image[index + 2];
-		const auto add_1 = index + 3 < length_ && binary_array_image[index + 3];
-
-		image_as_numbers[index / int_size] = digits[(add_8 ? 8 : 0) | (add_4 ? 4 : 0) | (add_2 ? 2 : 0) | (add_1 ? 1 : 0)];
-	}
-	return image_as_numbers;
+    return nof_cells / int_size + 1;
 }
