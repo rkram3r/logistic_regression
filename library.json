@@ -8,9 +8,9 @@
     "url": "https://github.com/rkram3r/logistic_regression.git"
   },
   "authors": { "name": "rkram3r" },
-  "export": { "include": "src/*.h" },
-  "exampales": "src/*.cpp",
-  "version": "1.1.2",
+  "export": { "include": ["src/*.h"] },
+  "exampales": ["src/*.cpp"],
+  "version": "1.1.0",
   "frameworks": "*",
   "platforms": "*"
 }
