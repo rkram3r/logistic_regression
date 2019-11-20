@@ -1,4 +1,11 @@
-# logistic_regression
-platformio library for logistic_regression
+# logistic_regression for embedded environments
 
-The model was trained with scikit-learn and numpy(py). The coefficients was then exported and used with this library.
+## Usage
+
+1. Create a model (use scikit-learn, numpy,...)
+2. Export the coefficients
+3. Use this library for predictions in embedded systems.
+
+## Examples
+
+see ./src/main.cpp

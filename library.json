@@ -1,14 +1,15 @@
 {
   "name": "logistic_regression",
   "keywords": "logistic regression",
-  "description": "",
+  "license": "AGPL-3.0-only",
+  "description": "Uses the coefficients to predict a value from the input.",
   "repository": {
     "type": "git",
     "url": "https://github.com/rkram3r/logistic_regression.git"
   },
   "authors": { "name": "rkram3r" },
-  "export": { "include": ["src/*.h"] },
-  "exampales": ["src/*.cpp"],
+  "export": { "include": "src/logistic_regression.h" },
+  "exampales": "src/main.cpp",
   "dependencies": {},
   "version": "1.1.1",
   "frameworks": "*",
