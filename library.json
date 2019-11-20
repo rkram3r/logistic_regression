@@ -1,24 +1,15 @@
 {
-   "name":"logistic_regression",
-   "keywords":"logistic regression",
-   "description":"",
-   "repository":{
-      "type":"git",
-      "url":"https://github.com/rkram3r/logistic_regression.git"
-   },
-   "authors":{
-      "name":"rkram3r"
-   },
-   "export":{
-      "include":[
-         "src/*",
-         "test.cpp"
-      ]
-   },
-   "dependencies":{
-
-   },
-   "version":"1.0.9",
-   "frameworks":"*",
-   "platforms":"*"
+  "name": "logistic_regression",
+  "keywords": "logistic regression",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rkram3r/logistic_regression.git"
+  },
+  "authors": { "name": "rkram3r" },
+  "export": { "include": ["src/logistic_regression.h"] },
+  "dependencies": {},
+  "version": "1.1.0",
+  "frameworks": "*",
+  "platforms": "*"
 }

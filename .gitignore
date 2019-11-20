@@ -1,3 +1,6 @@
+bin
+*.xml
+
 # Prerequisites
 *.d
 .idea
