@@ -10,7 +10,7 @@
   "authors": { "name": "rkram3r" },
   "export": { "include": ["src/*.h"] },
   "exampales": ["src/*.cpp"],
-  "version": "1.1.0",
+  "version": "1.2.0",
   "frameworks": "*",
   "platforms": "*"
 }
