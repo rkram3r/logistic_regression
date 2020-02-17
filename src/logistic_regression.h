@@ -18,14 +18,14 @@ public:
     template <typename T>
     double predict(T *matrix)
     {
-        auto sum{multiply_and_sum(matrix) + intercept};
+        double sum{multiply_and_sum(matrix) + intercept};
         return 1 / (1 + pow_(euler_, -sum));
     }
 
     template <typename T>
     double multiply_and_sum(T *matrix)
     {
-        auto sum{0};
+        double sum{};
         for (auto index = 0; index < nof_coef; index++)
         {
             sum += matrix[index] * coef_[index];
